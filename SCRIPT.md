@@ -86,10 +86,10 @@
 |---|---|---|
 | 1,000,000 items | ~500,000 checks | ~785 rounds (≈ π/4·√N) |
 
-The closing caption reads "Quadratic speedup: √N instead of N".
+The closing caption reads "Quadratic speedup: √N instead of N". On the last sentence, a soft orange wave ripples across the bottom of the frame, the bars ride it for a moment, and it carries into Part 2 as a teaser for Scene 14.
 
 **Narration:**
-> For a million items, about eight hundred rounds are enough — roughly the square root. That's a quadratic speedup: not magic, but a huge shortcut.
+> For a million items, about eight hundred rounds are enough — roughly the square root. That's a quadratic speedup: not magic, but a huge shortcut. And the reason it works is written into the physics of waves.
 
 ---
 
