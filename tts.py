@@ -21,9 +21,10 @@ VOICES = ROOT / "models" / "voices-v1.0.bin"
 TEXT_DIR = ROOT / "narration"
 AUDIO_DIR = ROOT / "public" / "narration"
 
-# Calm, warm American male voice. Alternatives: am_fenrir, am_puck, am_adam, am_onyx
-VOICE = "am_michael"
-SPEED = 1.0
+# Youthful, casual American male voice at a slightly brisk pace.
+# Alternatives: am_liam, am_echo, am_adam (casual); am_michael (calm, serious)
+VOICE = "am_puck"
+SPEED = 1.1
 
 
 def main() -> None:

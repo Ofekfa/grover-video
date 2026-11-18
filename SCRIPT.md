@@ -3,7 +3,7 @@
 **Target length:** 4–5 min total (hard limit 5 min) · 1920×1080 · 30 fps
 - **Part 1 — The big idea** (~1 min): the general intuition. Scenes 1–7.
 - **Part 2 — The math and physics** (~3.7 min): the same algorithm with its real notation, building to the physical source of the speedup (amplitudes interfere; probability = amplitude²). Scenes 8–18.
-**Voice:** Kokoro `am_michael` (calm male), `en-us`. Measured pace ≈ 2.5 words/s (17 words → 6.8 s), so ~155 words runs about 62 s before pauses. Trim a few words or set `SPEED` in `tts.py` to ~1.1 to fit 60 s.
+**Voice:** Kokoro `am_puck` at speed 1.1 (youthful, casual male), `en-us`. Pace ≈ 3.1 words/s; narration lengths are measured by `tts.py`, and the video length follows them automatically.
 
 **Visual language (colors live in `src/theme.ts`):**
 - Light and bright: warm off-white background `#fbfaf6`, dark navy text `#1f2544`
