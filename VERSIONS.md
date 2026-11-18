@@ -4,6 +4,7 @@ Each version has a git tag (`git checkout vX.Y` to go back to it) and a rendered
 
 | Version | Render | What changed |
 |---|---|---|
+| v0.7 | render-07.mp4 | Part 2 rebuilt around the physical source of the speedup: new scenes 14 (amplitudes are waves that cancel and add; the double slit; nature squares them on measurement) and 15 (why √N: probability = area, amplitude = side). 18 scenes, 4:47.8. Scene 1 animated; scenes 2–18 are placeholders |
 | v0.6 | render-06.mp4 | Part 2 added: 17 scenes, 4:44 total. Part 1 (1:04) is the big idea; Part 2 (3:41) covers the math and physics (Born rule, Hadamard, phase kickback, diffusion operator, rotation by 2θ, (π/4)√N, interference, optimality, hardware and crypto). Scene 1 animated; scenes 2–17 are placeholders. Renders are now numbered and never overwritten |
 | v0.5 | render-05.mp4 | One file per scene: 7 scenes back to back (63.5 s) with full per-scene narration. Scene 1 animated; scenes 2–7 are placeholder cards. `CLAUDE.md` rules for parallel agents |
 | v0.4 | render-04.mp4 | Voice changed to `am_michael` (calm, warm male); clip is now 7.26 s to fit the slower narration |
