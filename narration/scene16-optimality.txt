@@ -1,0 +1,1 @@
+The same picture sets a speed limit: each query can only turn the state a little. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that no quantum search beats about root N queries, so Grover's algorithm is optimal.

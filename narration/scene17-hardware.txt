@@ -1,0 +1,1 @@
+That's also why it's hard to build: noise scrambles the phases and washes out this interference, so long searches need error correction. Still, it's why cryptographers favor two hundred fifty-six bit keys, since Grover would cut a two to the one twenty-eight key search to about two to the sixty-four steps.

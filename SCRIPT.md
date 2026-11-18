@@ -147,7 +147,7 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 3. An arc labelled "2θ" shows the net rotation.
 
 **Narration:**
-> Here's the prettiest part. All the action happens in a flat plane, spanned by the answer and the uniform mix of everything else. We start just theta above the horizontal axis, where sine theta equals one over root N. The oracle reflects across that axis, the diffusion reflects across the starting state, and two reflections make a rotation by two theta.
+> Here's the prettiest part. Everything happens in a flat plane, spanned by the answer and the mix of everything else. We start theta above the horizontal, where sine theta is one over root N. The oracle reflects across that axis, the diffusion across the starting state, and two reflections make a rotation by two theta.
 
 ---
 
@@ -193,7 +193,7 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 **On screen:** A code-drawn chart (log scale) of queries against N: a periwinkle line for classical (N/2) and an orange line for Grover ((π/4)√N), with a shaded floor labelled "no quantum algorithm goes below ~√N". Citation cards: "Grover, 1996 — quant-ph/9605043" and "Bennett, Bernstein, Brassard, Vazirani, 1997 — quant-ph/9701001". These can be screenshots of the arXiv abstract pages. **Verify both IDs before use.**
 
 **Narration:**
-> The same picture also sets a speed limit. Each query can only turn the state by a small angle. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that no quantum algorithm can search faster than about root N queries. Grover's algorithm, from nineteen ninety-six, is optimal.
+> The same picture sets a speed limit: each query can only turn the state a little. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that no quantum search beats about root N queries, so Grover's algorithm is optimal.
 
 ---
 
@@ -202,7 +202,7 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 **On screen:** Left: a row of small phase dials that start aligned, then jitter and drift apart, labelled "noise / decoherence". The interference bands from Scene 14 wash out to grey as they drift. Right: two key-size bars. "AES-128: 2¹²⁸ → ~2⁶⁴ steps with Grover" is shown in orange as a warning, and "AES-256: 2²⁵⁶ → ~2¹²⁸" in navy with "still out of reach".
 
 **Narration:**
-> That's also why it's hard to build. Noise and decoherence scramble the phases and wash out exactly this interference, so long searches need error correction we don't have yet at scale. Still, it's why cryptographers favor two hundred fifty-six bit keys: Grover would cut a search over two to the one hundred twenty-eight keys to about two to the sixty-four steps.
+> That's also why it's hard to build: noise scrambles the phases and washes out this interference, so long searches need error correction. Still, it's why cryptographers favor two hundred fifty-six bit keys, since Grover would cut a two to the one twenty-eight key search to about two to the sixty-four steps.
 
 ---
 
@@ -211,7 +211,7 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 **On screen:** A compact summary built from earlier pieces: the H-box circuit → [U_f → D] × k → a measurement meter, with the rotation picture and the amplitude-square from Scene 15 beside it. Closing line: "Amplitudes add in sync; nature squares them at the end → ~(π/4)√N rounds." Then the final title.
 
 **Narration:**
-> So here's Grover in one picture: an equal superposition, then two reflections per round, each turning the state two theta toward the answer. Amplitudes build up in sync, and nature squares them only at the end. After about pi over four root N rounds, measure, and the needle is yours.
+> So here's Grover in one picture: two reflections per round, each turning the state two theta toward the answer. Amplitudes build up in sync, nature squares them only at the end, and after about pi over four root N rounds, the needle is yours.
 
 ---
 

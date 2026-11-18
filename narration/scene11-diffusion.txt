@@ -1,1 +1,1 @@
-The diffusion step is two times the projection onto the uniform state, minus the identity. Written per amplitude, each one becomes twice the average minus itself: exactly the reflection about the mean. On hardware, it's a Hadamard on every qubit, a phase flip on the all-zero state, and Hadamards again.
+The diffusion step is two times the projection onto the uniform state, minus the identity. Per amplitude, each one becomes twice the average minus itself: the reflection about the mean.

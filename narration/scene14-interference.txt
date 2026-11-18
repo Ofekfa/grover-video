@@ -1,1 +1,0 @@
-Why does this work at all? Interference. Unlike probabilities, amplitudes can be negative, so they can cancel out. Each round steers the wrong answers toward destructive interference and the right answer toward constructive interference. And since quantum evolution is reversible, we can't simply erase wrong answers; we can only rotate toward the right one.

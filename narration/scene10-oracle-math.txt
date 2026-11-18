@@ -1,1 +1,1 @@
-The oracle is a reversible circuit that recognizes the answer, like checking a sudoku without solving it. Feed it an extra qubit prepared in the minus state, and something neat happens: the answer bit kicks back as a phase. The marked state gets multiplied by minus one, and every other state is left untouched.
+The oracle is a reversible circuit that recognizes the answer, like checking a sudoku without solving it. With an extra qubit in the minus state, the answer kicks back as a phase: the marked state is multiplied by minus one, and every other state is left alone.

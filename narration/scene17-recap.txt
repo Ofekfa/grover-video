@@ -1,1 +1,0 @@
-So here's Grover in one picture. Start in an equal superposition, then repeat two reflections, each rotating the state two theta closer to the answer. After about pi over four root N rounds, measure, and the needle is yours.

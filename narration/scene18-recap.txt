@@ -1,0 +1,1 @@
+So here's Grover in one picture: two reflections per round, each turning the state two theta toward the answer. Amplitudes build up in sync, nature squares them only at the end, and after about pi over four root N rounds, the needle is yours.

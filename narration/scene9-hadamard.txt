@@ -1,1 +1,1 @@
-To start, every qubit goes through a Hadamard gate, which turns zero into an equal mix of zero and one. Apply it to all three qubits, and the eight states share the same amplitude: one over the square root of eight, about zero point three five. That's our row of equal bars.
+Every qubit first passes through a Hadamard gate, which turns zero into an equal mix of zero and one. Across three qubits, all eight states get the same amplitude: one over root eight, about zero point three five. That's our row of equal bars.

@@ -1,1 +1,0 @@
-Could a smarter quantum algorithm do better? No. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that any quantum search needs on the order of root N oracle calls. Each query can only nudge the state a little. Grover's algorithm, from nineteen ninety-six, reaches that limit, so it's optimal.
