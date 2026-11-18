@@ -24,7 +24,7 @@ Two agents can work at the same time if each one owns different scenes:
 1. **Only edit files you own:** your scene's `.tsx`, `.txt` and `.wav`. If a shared file needs a change (for example a new color in `theme.ts` or a new shared component), keep it small and mention it in your commit message.
 2. **Put scene-only helpers inside your scene file** rather than in `src/components/`, unless another scene really needs them too.
 3. **Regenerate only your own audio:** `.venv/bin/python tts.py scene3-superposition`.
-4. **Preview only your scene:** in `npx remotion studio`, open the `Scenes` folder. Render it alone with `./render.sh <version> Scene3-Superposition`.
+4. **Preview only your scene:** in `npx remotion studio`, open the `Scenes` folder. Render it alone with `./render.sh Scene3-Superposition`.
 5. **Commit only your files** (`git add src/scenes/Scene3Superposition.tsx narration/scene3-superposition.txt public/narration/scene3-superposition.wav`), never `git add -A`. If git reports `index.lock`, wait a moment and retry: the other agent is committing.
 6. **Use the scene's length:** inside a scene, `useVideoConfig().durationInFrames` is that scene's own length. Time animations against it, so they still fit when the narration changes.
 
@@ -34,4 +34,5 @@ Two agents can work at the same time if each one owns different scenes:
 - Python runs from the venv: `.venv/bin/python` (system `python3` doesn't have kokoro-onnx).
 - Check before committing: `npx tsc && npx eslint src`.
 - Commit after every step, with a message that says **what** changed and **why**. End messages with the `Co-Authored-By` line.
-- Each visible milestone becomes a version: `./render.sh vX.Y`, add a row to `VERSIONS.md`, then commit, `git tag -a vX.Y`, push with tags, and `gh release create vX.Y renders/vX.Y.mp4`.
+- **Never render over an earlier video.** Every render goes to a new numbered file (`renders/render-01.mp4`, `render-02.mp4`, …). `render.sh` picks the next number and refuses to overwrite. Don't pass your own output path to `npx remotion render` inside `renders/`.
+- Each visible milestone becomes a version: run `./render.sh`, add a row (version, render file, what changed) to `VERSIONS.md`, then commit, `git tag -a vX.Y`, push with tags, and `gh release create vX.Y renders/render-NN.mp4`.
