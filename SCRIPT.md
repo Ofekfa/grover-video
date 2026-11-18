@@ -2,7 +2,7 @@
 
 **Target length:** 4–5 min total (hard limit 5 min) · 1920×1080 · 30 fps
 - **Part 1 — The big idea** (~1 min): the general intuition. Scenes 1–7.
-- **Part 2 — The math and physics** (~3.5 min): the same algorithm with its real notation. Scenes 8–17.
+- **Part 2 — The math and physics** (~3.7 min): the same algorithm with its real notation, building to the physical source of the speedup (amplitudes interfere; probability = amplitude²). Scenes 8–18.
 **Voice:** Kokoro `am_michael` (calm male), `en-us`. Measured pace ≈ 2.5 words/s (17 words → 6.8 s), so ~155 words runs about 62 s before pauses. Trim a few words or set `SPEED` in `tts.py` to ~1.1 to fit 60 s.
 
 **Visual language (colors live in `src/theme.ts`):**
@@ -93,27 +93,29 @@ The closing caption reads "Quadratic speedup: √N instead of N".
 
 ---
 
-# Part 2 — The math and physics (~3.5 min)
+# Part 2 — The math and physics (~3.7 min)
 
 Part 2 goes back over the same algorithm with its real notation, keeping the same 8-item example (3 qubits, marked item = bar #6 = state |101⟩). Every illustration is drawn in code: kets as text, circuits as SVG wires and boxes, and the rotation picture as SVG axes and vectors.
 
+> **Core message, which Part 2 builds toward (Scenes 14–15):** the speedup is not "trying every answer at once". It comes from a fact about nature: **the world keeps its books in amplitudes, which are waves that add and cancel, and turns them into probabilities only by squaring them when we look.** Grover makes the amplitudes add up *in sync* on the answer, so amplitude grows step by step while probability is its square. That square is exactly why √N rounds are enough instead of N checks. Scenes 8–13 set up the pieces (amplitudes, the Born rule's square, the rotation), and Scenes 16–18 show the consequences (a speed limit, fragility, real stakes).
+
 ---
 
-## Scene 8 — Under the hood: qubits and amplitudes
+## Scene 8 — Under the hood: amplitudes and the Born rule
 
-**On screen:** A title card reads "Part 2 · The math and physics". Three horizontal qubit wires labelled q₀, q₁, q₂ fan out into 8 labelled states |000⟩ … |111⟩, each with its amplitude bar. The formula |ψ⟩ = Σₓ aₓ|x⟩ writes itself in. Then each bar gets a faint second bar showing aₓ², with the caption "P(x) = |aₓ|²  ·  Σ |aₓ|² = 1".
+**On screen:** A title card reads "Part 2 · The math and physics". Three qubit wires labelled q₀, q₁, q₂ fan out into 8 states |000⟩ … |111⟩, each with an amplitude bar. The formula |ψ⟩ = Σₓ aₓ|x⟩ writes itself in. Each bar gets a faint second bar for aₓ², and the caption **"P(x) = |aₓ|²"** is highlighted in orange. It is the seed of the core message, so it should linger.
 
 **Narration:**
-> Now let's look under the hood. A register of n qubits has two to the n basis states, so three qubits give eight. The quantum state is a list of amplitudes, one for each of them. When we measure, we get each state with probability equal to its amplitude squared. That's the Born rule, and those squares always add up to one.
+> Now let's look under the hood. Three qubits have eight basis states, and the quantum state is a list of eight amplitudes. Measure it, and each state appears with probability equal to its amplitude squared. That's the Born rule. Remember that square; it's the key to everything.
 
 ---
 
 ## Scene 9 — Hadamard: building the superposition
 
-**On screen:** A circuit diagram shows three wires starting at |0⟩, each passing through an "H" box. A small inset unit circle shows |0⟩ (pointing up) turning into |+⟩ (at 45°), with H|0⟩ = (|0⟩ + |1⟩)/√2. Then the full formula H⊗³|000⟩ = (1/√8) Σₓ |x⟩ appears, and all 8 bars rise together to 0.354.
+**On screen:** A circuit diagram shows three wires starting at |0⟩, each passing through an "H" box. A small inset unit circle shows |0⟩ (pointing up) turning into |+⟩ (at 45°), with H|0⟩ = (|0⟩ + |1⟩)/√2. Then H⊗³|000⟩ = (1/√8) Σₓ |x⟩ appears, and all 8 bars rise together to 0.354.
 
 **Narration:**
-> To start, every qubit goes through a Hadamard gate, which turns zero into an equal mix of zero and one. Apply it to all three qubits, and the eight states share the same amplitude: one over the square root of eight, about zero point three five. That's our row of equal bars.
+> Every qubit first passes through a Hadamard gate, which turns zero into an equal mix of zero and one. Across three qubits, all eight states get the same amplitude: one over root eight, about zero point three five. That's our row of equal bars.
 
 ---
 
@@ -122,18 +124,18 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 **On screen:** The circuit gains a tall "U_f" box spanning the three wires plus an extra ancilla wire, which is prepared as |1⟩ → H → |−⟩. A small code-drawn sudoku grid with a ✓ sits beside the box ("easy to check, hard to solve"). The formulas appear in turn: U_f|x⟩|y⟩ = |x⟩|y ⊕ f(x)⟩, then (−1)^f(x) |x⟩|−⟩. A "kickback" arrow runs from the ancilla up to the main wires. Bar |101⟩ flips below the axis.
 
 **Narration:**
-> The oracle is a reversible circuit that recognizes the answer, like checking a sudoku without solving it. Feed it an extra qubit prepared in the minus state, and something neat happens: the answer bit kicks back as a phase. The marked state gets multiplied by minus one, and every other state is left untouched.
+> The oracle is a reversible circuit that recognizes the answer, like checking a sudoku without solving it. With an extra qubit in the minus state, the answer kicks back as a phase: the marked state is multiplied by minus one, and every other state is left alone.
 
 ---
 
 ## Scene 11 — The diffusion operator
 
-**On screen:** The formula D = 2|s⟩⟨s| − I appears, then turns into the per-amplitude rule aₓ → 2ā − aₓ, with the dashed "average" line from Part 1 reappearing over the bars. Below, the circuit for D is drawn: H on all wires → a phase-flip box on |000⟩ → H on all wires.
+**On screen:** The formula D = 2|s⟩⟨s| − I appears, then turns into the per-amplitude rule aₓ → 2ā − aₓ, with the dashed "average" line from Part 1 over the bars. The circuit for D is drawn silently below: H on all wires → a phase-flip box on |000⟩ → H on all wires.
 
 **Narration:**
-> The diffusion step is two times the projection onto the uniform state, minus the identity. Written per amplitude, each one becomes twice the average minus itself: exactly the reflection about the mean. On hardware, it's a Hadamard on every qubit, a phase flip on the all-zero state, and Hadamards again.
+> The diffusion step is two times the projection onto the uniform state, minus the identity. Per amplitude, each one becomes twice the average minus itself: the reflection about the mean.
 
-*Note for accuracy:* 2|0⟩⟨0| − I flips every state except |000⟩. That equals flipping only |000⟩ up to an overall sign, which has no physical effect. The narration's wording is fine.
+*Note for accuracy:* 2|0⟩⟨0| − I flips every state except |000⟩. That equals flipping only |000⟩ up to an overall sign, which has no physical effect.
 
 ---
 
@@ -151,46 +153,65 @@ Part 2 goes back over the same algorithm with its real notation, keeping the sam
 
 ## Scene 13 — How many rounds?
 
-**On screen:** The same plane. The arrow steps around: θ = 20.7° → 62.1° → 103.5°. A readout shows "P = sin²(angle)": 12.5% → 78.1% → 94.5%. The formula (2k + 1)θ ≈ 90° ⇒ k ≈ (π/4)√N appears. A second readout for N = 1,000,000 shows θ ≈ 0.057° and k = 785.
+**On screen:** The same plane. The arrow steps around: θ = 20.7° → 62.1° → 103.5°. A readout shows "P = sin²(angle)": 12.5% → 78.1% → 94.5%. The formula (2k + 1)θ ≈ 90° ⇒ k ≈ (π/4)√N appears, then "N = 1,000,000 → 785 rounds".
 
 **Narration:**
-> After k rounds, the state sits at an angle of two k plus one, times theta, and the chance of success is the sine of that angle, squared. We want ninety degrees, so k is about pi over four times the square root of N. For eight items, theta is about twenty-one degrees, and two rounds land at a hundred and four. For a million items, it takes seven hundred eighty-five rounds.
+> After k rounds, the angle is two k plus one, times theta, and the chance of success is its sine, squared. Reaching ninety degrees takes about pi over four times root N rounds: two for eight items, seven hundred eighty-five for a million.
 
 ---
 
-## Scene 14 — Interference: the physics behind it
+## Scene 14 — Where the speedup really comes from: waves
 
-**On screen:** Two waves are drawn as SVG paths. In-phase waves add into a big orange wave labelled "constructive"; out-of-phase waves cancel into a flat periwinkle line labelled "destructive". Below, the 8 bars from Scene 6 are shown with + and − signs. A caption reads "amplitudes can be negative · evolution is unitary (reversible)".
+**On screen:**
+1. **Myth card:** eight small copies of the oracle box run "in parallel", then a measurement meter picks *one* at random, and a "✗ parallelism alone" stamp appears.
+2. **Double slit (code-drawn):** a source on the left, a barrier with two slits, and circular wavefronts spreading from each slit as SVG arcs. On the right screen, the bright and dark bands are computed from cos² of the path difference. Labels: "waves add → bright" and "waves cancel → dark".
+3. **Nature's ledger:** two columns. Probabilities: "only add (0 → 1)". Amplitudes: "+ and −, can cancel". An arrow labelled "square when we look" points from the amplitudes column to the probabilities column.
+4. The 8 bars return. The wrong answers' contributions are tinted to show them cancelling, and the marked bar's to show them piling up.
 
 **Narration:**
-> Why does this work at all? Interference. Unlike probabilities, amplitudes can be negative, so they can cancel out. Each round steers the wrong answers toward destructive interference and the right answer toward constructive interference. And since quantum evolution is reversible, we can't simply erase wrong answers; we can only rotate toward the right one.
+> So where does the speedup really come from? Not from trying every answer at once: a measurement hands you just one result, at random. It comes from how nature keeps its books. A quantum system stores amplitudes, waves that can be positive or negative and can cancel, and only when we look are they squared into odds. It's the physics of the double-slit experiment, where a particle's waves cancel in some places and pile up in others. Grover tunes that interference to pile up on the answer.
 
 ---
 
-## Scene 15 — Can we do better? No.
+## Scene 15 — Why exactly the square root
 
-**On screen:** A code-drawn chart (log scale) of queries against N: a periwinkle line for classical (N/2) and an orange line for Grover ((π/4)√N), with a shaded floor labelled "no quantum algorithm goes below ~√N". Two citation cards: "Grover, 1996 — quant-ph/9605043" and "Bennett, Bernstein, Brassard, Vazirani, 1997 — quant-ph/9701001". These can be screenshots of the arXiv abstract pages.
+**On screen:** Two side-by-side panels, each with a unit square whose filled orange area = probability of having found the answer.
+- **Classical (left):** each check adds a thin strip of area 1/N. A counter shows that it takes ~N strips to fill the square.
+- **Quantum (right):** the filled region is a square whose *side* = the answer's amplitude. Each round adds a short orange arrow of length ≈ 2/√N to the side, head to tail and all pointing the same way ("in sync"). The area (side²) grows slowly at first, then fast, and fills the square after ~√N arrows.
+- **Swing inset:** a small pendulum gets well-timed pushes, and its amplitude grows each swing.
+- Caption: **"amplitude adds in steps of ~1/√N · probability = amplitude² → ~√N rounds"**.
 
 **Narration:**
-> Could a smarter quantum algorithm do better? No. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that any quantum search needs on the order of root N oracle calls. Each query can only nudge the state a little. Grover's algorithm, from nineteen ninety-six, reaches that limit, so it's optimal.
+> And that squaring is exactly where the square root comes from. Think of probability as the area of a square, and amplitude as its side. Classically, each check adds about one over N of area, so you need about N checks. Quantumly, each round lengthens the side by about two over root N, and the pushes add up in sync, like well-timed pushes on a swing. So about root N rounds are enough to fill the whole square.
+
+*Accuracy notes:* for small k the marked amplitude is sin((2k + 1)θ) ≈ (2k + 1)/√N, so each round adds ≈ 2/√N (checked: exactly 0.002 per round at first for N = 10⁶). Because the state is really rotating, the steps shrink near the top: the side reaches 1 after (π/4)√N rounds rather than √N/2. The animation can show the arrows following a quarter-circle near the end. Classically, after k random distinct checks P = k/N. The swing is an analogy for coherent (in-phase) accumulation, not a literal mechanism.
 
 ---
 
-## Scene 16 — Real hardware, real stakes
+## Scene 16 — A speed limit from the same physics
 
-**On screen:** Left: a row of small phase dials that start aligned, then jitter and drift apart, labelled "noise / decoherence". Right: two key-size bars. "AES-128: 2¹²⁸ → ~2⁶⁴ steps with Grover" is shown in orange as a warning, and "AES-256: 2²⁵⁶ → ~2¹²⁸" in navy with "still out of reach".
+**On screen:** A code-drawn chart (log scale) of queries against N: a periwinkle line for classical (N/2) and an orange line for Grover ((π/4)√N), with a shaded floor labelled "no quantum algorithm goes below ~√N". Citation cards: "Grover, 1996 — quant-ph/9605043" and "Bennett, Bernstein, Brassard, Vazirani, 1997 — quant-ph/9701001". These can be screenshots of the arXiv abstract pages. **Verify both IDs before use.**
 
 **Narration:**
-> In practice, qubits are fragile. Noise and decoherence scramble the phases, so a search this long needs error correction we don't have yet at scale. But the idea already matters. It's why post-quantum advice favors two hundred fifty-six bit keys: Grover would cut a search over two to the one hundred twenty-eight keys to about two to the sixty-four steps.
+> The same picture also sets a speed limit. Each query can only turn the state by a small angle. In nineteen ninety-seven, Bennett, Bernstein, Brassard and Vazirani proved that no quantum algorithm can search faster than about root N queries. Grover's algorithm, from nineteen ninety-six, is optimal.
 
 ---
 
-## Scene 17 — Recap
+## Scene 17 — Fragile waves, real stakes
 
-**On screen:** A compact summary built from earlier pieces: the H-box circuit → [U_f → D] × k → a measurement meter, with the 2D rotation picture beside it. Closing line: "Grover: ~(π/4)√N rounds of two reflections." Then the final title.
+**On screen:** Left: a row of small phase dials that start aligned, then jitter and drift apart, labelled "noise / decoherence". The interference bands from Scene 14 wash out to grey as they drift. Right: two key-size bars. "AES-128: 2¹²⁸ → ~2⁶⁴ steps with Grover" is shown in orange as a warning, and "AES-256: 2²⁵⁶ → ~2¹²⁸" in navy with "still out of reach".
 
 **Narration:**
-> So here's Grover in one picture. Start in an equal superposition, then repeat two reflections, each rotating the state two theta closer to the answer. After about pi over four root N rounds, measure, and the needle is yours.
+> That's also why it's hard to build. Noise and decoherence scramble the phases and wash out exactly this interference, so long searches need error correction we don't have yet at scale. Still, it's why cryptographers favor two hundred fifty-six bit keys: Grover would cut a search over two to the one hundred twenty-eight keys to about two to the sixty-four steps.
+
+---
+
+## Scene 18 — Recap
+
+**On screen:** A compact summary built from earlier pieces: the H-box circuit → [U_f → D] × k → a measurement meter, with the rotation picture and the amplitude-square from Scene 15 beside it. Closing line: "Amplitudes add in sync; nature squares them at the end → ~(π/4)√N rounds." Then the final title.
+
+**Narration:**
+> So here's Grover in one picture: an equal superposition, then two reflections per round, each turning the state two theta toward the answer. Amplitudes build up in sync, and nature squares them only at the end. After about pi over four root N rounds, measure, and the needle is yours.
 
 ---
 
@@ -210,7 +231,7 @@ N = 8, so the optimal number of rounds is ⌊π/4 · √8⌋ = 2.
 Reflection rule: new = 2·mean − old.
 For N = 1,000,000: π/4 · 1000 ≈ 785 rounds, so "about eight hundred" is accurate.
 
-**Rotation picture (Scenes 12–13):** sin θ = 1/√N. After k rounds the angle is (2k + 1)θ and P(marked) = sin²((2k + 1)θ).
+**Rotation picture (Scenes 12–13, 15):** sin θ = 1/√N. After k rounds the angle is (2k + 1)θ and P(marked) = sin²((2k + 1)θ).
 
 | N | θ | Round 0 | Round 1 | Round 2 | Round 3 | k_opt = ⌊(π/4)√N⌋ |
 |---|---|---|---|---|---|---|
