@@ -17,6 +17,10 @@ VOICES = ROOT / "models" / "voices-v1.0.bin"
 OUT_WAV = ROOT / "public" / "narration.wav"
 OUT_JSON = ROOT / "src" / "narration.json"
 
+# Calm, warm American male voice. Alternatives: am_fenrir, am_puck, am_adam, am_onyx
+VOICE = "am_michael"
+SPEED = 1.0
+
 TEXT = (
     "Grover's algorithm finds a needle in a haystack "
     "of a million items in about eight hundred steps."
@@ -25,7 +29,7 @@ TEXT = (
 
 def main() -> None:
     kokoro = Kokoro(str(MODEL), str(VOICES))
-    samples, sample_rate = kokoro.create(TEXT, voice="af_sarah", speed=1.0, lang="en-us")
+    samples, sample_rate = kokoro.create(TEXT, voice=VOICE, speed=SPEED, lang="en-us")
     sf.write(OUT_WAV, samples, sample_rate)
 
     duration = len(samples) / sample_rate

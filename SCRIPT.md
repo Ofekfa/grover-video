@@ -1,7 +1,7 @@
 # Grover's Algorithm — 1-Minute Explainer Script
 
 **Target length:** ~60 s · 1920×1080 · 30 fps
-**Voice:** Kokoro `af_sarah`, `en-us`. Measured pace ≈ 3 words/s (17 words → 5.7 s), so ~155 words of narration leaves room for pauses.
+**Voice:** Kokoro `am_michael` (calm male), `en-us`. Measured pace ≈ 2.5 words/s (17 words → 6.8 s), so ~155 words runs about 62 s before pauses. Trim a few words or set `SPEED` in `tts.py` to ~1.1 to fit 60 s.
 
 **Visual language (carried over from `TestClip`):**
 - Light and bright: warm off-white background `#fbfaf6`, dark navy text `#1f2544`

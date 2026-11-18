@@ -4,6 +4,7 @@ Each version has a git tag (`git checkout vX.Y` to go back to it) and a rendered
 
 | Version | What changed |
 |---|---|
+| v0.4 | Voice changed to `am_michael` (calm, warm male); clip is now 7.26 s to fit the slower narration |
 | v0.3 | Narration is part of the composition: audible in `npm run dev`, and `render.sh` no longer needs an ffmpeg mix step |
 | v0.2 | Light and bright palette: off-white background, navy title, periwinkle bars, orange marked bar |
 | v0.1 | First test clip: dark background, title fade-in, 8 bars with one growing, Kokoro narration. Plus `SCRIPT.md` |
