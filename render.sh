@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
-# Render the video (narration is part of the composition) into renders/<version>.mp4
-# Usage: ./render.sh v0.3
+# Render a version of the video (narration is part of the composition).
+# Usage:
+#   ./render.sh v0.5                 # full video  -> renders/v0.5.mp4
+#   ./render.sh v0.5 Scene3-Superposition   # one scene -> renders/v0.5-Scene3-Superposition.mp4
 set -euo pipefail
 cd "$(dirname "$0")"
 
-VERSION="${1:?usage: ./render.sh <version>, e.g. ./render.sh v0.3}"
+VERSION="${1:?usage: ./render.sh <version> [composition], e.g. ./render.sh v0.5}"
+COMPOSITION="${2:-GroverExplainer}"
+OUT="renders/$VERSION.mp4"
+[ "$COMPOSITION" != "GroverExplainer" ] && OUT="renders/$VERSION-$COMPOSITION.mp4"
 mkdir -p renders
 
-npx remotion render TestClip "renders/$VERSION.mp4"
+npx remotion render "$COMPOSITION" "$OUT"
 
 ffprobe -v error -show_entries stream=codec_type,codec_name -show_entries format=duration \
-  -of compact "renders/$VERSION.mp4"
-echo "Saved renders/$VERSION.mp4"
-open "renders/$VERSION.mp4"
+  -of compact "$OUT"
+echo "Saved $OUT"
+open "$OUT"
