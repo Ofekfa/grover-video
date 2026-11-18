@@ -20,22 +20,24 @@ export const RemotionRoot: React.FC = () => {
       />
 
       {/* Each scene on its own, for previewing while working on it. */}
-      <Folder name="Scenes">
-        {SCENES.map((scene) => (
-          <Composition
-            key={scene.id}
-            id={scene.compositionId}
-            component={scene.component}
-            durationInFrames={VIDEO.fps * 8}
-            fps={VIDEO.fps}
-            width={VIDEO.width}
-            height={VIDEO.height}
-            calculateMetadata={async () => ({
-              durationInFrames: await getSceneDurationInFrames(scene.id),
-            })}
-          />
-        ))}
-      </Folder>
+      {([1, 2] as const).map((part) => (
+        <Folder key={part} name={`Part${part}`}>
+          {SCENES.filter((scene) => scene.part === part).map((scene) => (
+            <Composition
+              key={scene.id}
+              id={scene.compositionId}
+              component={scene.component}
+              durationInFrames={VIDEO.fps * 8}
+              fps={VIDEO.fps}
+              width={VIDEO.width}
+              height={VIDEO.height}
+              calculateMetadata={async () => ({
+                durationInFrames: await getSceneDurationInFrames(scene.id),
+              })}
+            />
+          ))}
+        </Folder>
+      ))}
     </>
   );
 };

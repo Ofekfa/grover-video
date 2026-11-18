@@ -24,7 +24,7 @@ Two agents can work at the same time if each one owns different scenes:
 1. **Only edit files you own:** your scene's `.tsx`, `.txt` and `.wav`. If a shared file needs a change (for example a new color in `theme.ts` or a new shared component), keep it small and mention it in your commit message.
 2. **Put scene-only helpers inside your scene file** rather than in `src/components/`, unless another scene really needs them too.
 3. **Regenerate only your own audio:** `.venv/bin/python tts.py scene3-superposition`.
-4. **Preview only your scene:** in `npx remotion studio`, open the `Scenes` folder. Render it alone with `./render.sh Scene3-Superposition`.
+4. **Preview only your scene:** in `npx remotion studio`, open the `Part1` or `Part2` folder. Render it alone with `./render.sh Scene3-Superposition`.
 5. **Commit only your files** (`git add src/scenes/Scene3Superposition.tsx narration/scene3-superposition.txt public/narration/scene3-superposition.wav`), never `git add -A`. If git reports `index.lock`, wait a moment and retry: the other agent is committing.
 6. **Use the scene's length:** inside a scene, `useVideoConfig().durationInFrames` is that scene's own length. Time animations against it, so they still fit when the narration changes.
 
