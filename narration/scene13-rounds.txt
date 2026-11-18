@@ -1,0 +1,1 @@
+After k rounds, the state sits at an angle of two k plus one, times theta, and the chance of success is the sine of that angle, squared. We want ninety degrees, so k is about pi over four times the square root of N. For eight items, theta is about twenty-one degrees, and two rounds land at a hundred and four. For a million items, it takes seven hundred eighty-five rounds.

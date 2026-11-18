@@ -1,0 +1,1 @@
+In practice, qubits are fragile. Noise and decoherence scramble the phases, so a search this long needs error correction we don't have yet at scale. But the idea already matters. It's why post-quantum advice favors two hundred fifty-six bit keys: Grover would cut a search over two to the one hundred twenty-eight keys to about two to the sixty-four steps.

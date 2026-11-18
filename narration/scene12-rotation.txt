@@ -1,0 +1,1 @@
+Here's the prettiest part. All the action happens in a flat plane, spanned by the answer and the uniform mix of everything else. We start just theta above the horizontal axis, where sine theta equals one over root N. The oracle reflects across that axis, the diffusion reflects across the starting state, and two reflections make a rotation by two theta.
