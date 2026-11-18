@@ -1,0 +1,1 @@
+Then comes the clever part: reflect every bar around the average. The flipped bar shoots up, and all the others shrink.

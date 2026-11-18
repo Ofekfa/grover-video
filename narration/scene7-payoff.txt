@@ -1,0 +1,1 @@
+For a million items, about eight hundred rounds are enough — roughly the square root. That's a quadratic speedup: not magic, but a huge shortcut.

@@ -1,0 +1,1 @@
+A quantum computer starts by putting every item in superposition, each with an equal amplitude. Think of amplitudes as bar heights.

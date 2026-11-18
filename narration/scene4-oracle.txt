@@ -1,0 +1,1 @@
+Next, an oracle marks the answer by flipping its amplitude upside down. If we measured now, the odds would still be the same.

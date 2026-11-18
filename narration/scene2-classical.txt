@@ -1,0 +1,1 @@
+A normal computer has to check items one at a time. On average, that's half a million checks.
