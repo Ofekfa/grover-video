@@ -14,10 +14,11 @@ import { SCENE10_ID, Scene10OracleMath } from "./Scene10OracleMath";
 import { SCENE11_ID, Scene11Diffusion } from "./Scene11Diffusion";
 import { SCENE12_ID, Scene12Rotation } from "./Scene12Rotation";
 import { SCENE13_ID, Scene13Rounds } from "./Scene13Rounds";
-import { SCENE14_ID, Scene14Interference } from "./Scene14Interference";
-import { SCENE15_ID, Scene15Optimality } from "./Scene15Optimality";
-import { SCENE16_ID, Scene16Hardware } from "./Scene16Hardware";
-import { SCENE17_ID, Scene17Recap } from "./Scene17Recap";
+import { SCENE14_ID, Scene14Waves } from "./Scene14Waves";
+import { SCENE15_ID, Scene15Sqrt } from "./Scene15Sqrt";
+import { SCENE16_ID, Scene16Optimality } from "./Scene16Optimality";
+import { SCENE17_ID, Scene17Hardware } from "./Scene17Hardware";
+import { SCENE18_ID, Scene18Recap } from "./Scene18Recap";
 
 export type SceneEntry = {
   /** Matches narration/<id>.txt and public/narration/<id>.wav */
@@ -46,8 +47,9 @@ export const SCENES: SceneEntry[] = [
   { id: SCENE11_ID, part: 2, compositionId: "Scene11-Diffusion", component: Scene11Diffusion },
   { id: SCENE12_ID, part: 2, compositionId: "Scene12-Rotation", component: Scene12Rotation },
   { id: SCENE13_ID, part: 2, compositionId: "Scene13-Rounds", component: Scene13Rounds },
-  { id: SCENE14_ID, part: 2, compositionId: "Scene14-Interference", component: Scene14Interference },
-  { id: SCENE15_ID, part: 2, compositionId: "Scene15-Optimality", component: Scene15Optimality },
-  { id: SCENE16_ID, part: 2, compositionId: "Scene16-Hardware", component: Scene16Hardware },
-  { id: SCENE17_ID, part: 2, compositionId: "Scene17-Recap", component: Scene17Recap },
+  { id: SCENE14_ID, part: 2, compositionId: "Scene14-Waves", component: Scene14Waves },
+  { id: SCENE15_ID, part: 2, compositionId: "Scene15-Sqrt", component: Scene15Sqrt },
+  { id: SCENE16_ID, part: 2, compositionId: "Scene16-Optimality", component: Scene16Optimality },
+  { id: SCENE17_ID, part: 2, compositionId: "Scene17-Hardware", component: Scene17Hardware },
+  { id: SCENE18_ID, part: 2, compositionId: "Scene18-Recap", component: Scene18Recap },
 ];
