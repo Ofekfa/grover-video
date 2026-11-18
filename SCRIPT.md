@@ -4,15 +4,15 @@
 **Voice:** Kokoro `af_sarah`, `en-us`. Measured pace ≈ 3 words/s (17 words → 5.7 s), so ~155 words of narration leaves room for pauses.
 
 **Visual language (carried over from `TestClip`):**
-- Background `#0b1020`, text `#f5f7ff`
-- Ordinary items: slate bars `#3a4670`; marked item: teal `#4fd1c5` (bar #6, index 5)
+- Light and bright: warm off-white background `#fbfaf6`, dark navy text `#1f2544`
+- Ordinary items: soft periwinkle bars `#b4bffb`; marked item: bright orange `#ff7a1a` (bar #6, index 5)
 - Bar **height = amplitude**. A horizontal zero axis appears from Scene 3 on, so bars can go negative (point down).
 
 ---
 
 ## Scene 1 — Hook (0:00–0:07)
 
-**On screen:** The title "Grover's Algorithm" fades in. Below it, a wide field of tiny dots ("a million items") fades in, and one dot glows teal.
+**On screen:** The title "Grover's Algorithm" fades in. Below it, a wide field of tiny dots ("a million items") fades in, and one dot glows orange.
 
 **Narration:**
 > Grover's algorithm finds a needle in a haystack of a million items in about eight hundred steps. Here's how.
@@ -30,7 +30,7 @@
 
 ## Scene 3 — Superposition (0:15–0:23)
 
-**On screen:** The 8 boxes morph into 8 equal slate bars standing on a zero axis. Label: "amplitude". A small caption reads "all items at once".
+**On screen:** The 8 boxes morph into 8 equal periwinkle bars standing on a zero axis. Label: "amplitude". A small caption reads "all items at once".
 
 **Narration:**
 > A quantum computer starts by putting every item in superposition, each with an equal amplitude. Think of amplitudes as bar heights.
@@ -41,7 +41,7 @@
 
 ## Scene 4 — The oracle (0:23–0:31)
 
-**On screen:** A "🔍 Oracle" label sweeps across the bars. When it reaches bar #6, the bar turns teal and **flips below the axis**. A side panel shows "probability = height²", and all 8 probabilities stay equal at 12.5%.
+**On screen:** A "🔍 Oracle" label sweeps across the bars. When it reaches bar #6, the bar turns orange and **flips below the axis**. A side panel shows "probability = height²", and all 8 probabilities stay equal at 12.5%.
 
 **Narration:**
 > Next, an oracle marks the answer by flipping its amplitude upside down. If we measured now, the odds would still be the same.
@@ -52,7 +52,7 @@
 
 ## Scene 5 — Inversion about the mean (0:31–0:41)
 
-**On screen:** A dashed horizontal line appears at the average height (0.265), labelled "average". Each bar reflects through that line: the slate bars drop to about half their height, and the teal bar swings up to more than double.
+**On screen:** A dashed horizontal line appears at the average height (0.265), labelled "average". Each bar reflects through that line: the periwinkle bars drop to about half their height, and the orange bar swings up to more than double.
 
 **Narration:**
 > Then comes the clever part: reflect every bar around the average. The flipped bar shoots up, and all the others shrink.
@@ -63,7 +63,7 @@
 
 ## Scene 6 — Repeat, but not too much (0:41–0:50)
 
-**On screen:** A loop badge appears: "oracle → reflect ×2". The second round plays quickly. The marked bar reaches 0.972, and the others dip just below zero. Then a ghost third round plays in red: the teal bar *shrinks* back to 0.575, with an "overshoot!" label, before rewinding to round 2.
+**On screen:** A loop badge appears: "oracle → reflect ×2". The second round plays quickly. The marked bar reaches 0.972, and the others dip just below zero. Then a ghost third round plays as a dashed outline: the orange bar *shrinks* back to 0.575, with an "overshoot!" label, before rewinding to round 2.
 
 **Narration:**
 > Repeat the oracle and the reflection, and the marked item keeps growing. With eight items, two rounds give a ninety-four percent chance. But go too far, and it shrinks again.
@@ -75,7 +75,7 @@
 
 ## Scene 7 — Payoff (0:50–1:00)
 
-**On screen:** A measurement "snap" plays. Every bar collapses except the teal one, which lights up with ✓. Cut to a comparison card:
+**On screen:** A measurement "snap" plays. Every bar collapses except the orange one, which lights up with ✓. Cut to a comparison card:
 
 | | Classical | Grover |
 |---|---|---|

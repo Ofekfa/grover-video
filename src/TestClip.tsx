@@ -28,10 +28,10 @@ const BASE_HEIGHT = 120;
 const MARKED_HEIGHT = 420;
 
 const COLORS = {
-  background: "#0b1020",
-  title: "#f5f7ff",
-  bar: "#3a4670",
-  marked: "#4fd1c5",
+  background: "#fbfaf6",
+  title: "#1f2544",
+  bar: "#b4bffb",
+  marked: "#ff7a1a",
 };
 
 export const TestClip: React.FC = () => {
