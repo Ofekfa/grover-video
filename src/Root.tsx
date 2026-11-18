@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { FPS, TestClip, getDurationInFrames } from "./TestClip";
 import narration from "./narration.json";
+import { VIDEO } from "./theme";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -10,8 +11,8 @@ export const RemotionRoot: React.FC = () => {
         component={TestClip}
         durationInFrames={getDurationInFrames(narration.durationInSeconds)}
         fps={FPS}
-        width={1920}
-        height={1080}
+        width={VIDEO.width}
+        height={VIDEO.height}
       />
     </>
   );

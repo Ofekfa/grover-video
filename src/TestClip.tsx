@@ -8,8 +8,9 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { COLORS, FONT_FAMILY, VIDEO } from "./theme";
 
-export const FPS = 30;
+export const FPS = VIDEO.fps;
 const BASE_SECONDS = 5;
 const AUDIO_PADDING_SECONDS = 0.5;
 
@@ -28,13 +29,6 @@ const BAR_WIDTH = 120;
 const BAR_GAP = 40;
 const BASE_HEIGHT = 120;
 const MARKED_HEIGHT = 420;
-
-const COLORS = {
-  background: "#fbfaf6",
-  title: "#1f2544",
-  bar: "#b4bffb",
-  marked: "#ff7a1a",
-};
 
 export const TestClip: React.FC = () => {
   const frame = useCurrentFrame();
@@ -76,8 +70,7 @@ export const TestClip: React.FC = () => {
         backgroundColor: COLORS.background,
         alignItems: "center",
         justifyContent: "center",
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif",
+        fontFamily: FONT_FAMILY,
       }}
     >
       <Audio src={staticFile("narration.wav")} />
@@ -95,7 +88,7 @@ export const TestClip: React.FC = () => {
             fontSize: 110,
             fontWeight: 700,
             letterSpacing: -2,
-            color: COLORS.title,
+            color: COLORS.text,
             opacity: titleOpacity,
             transform: `translateY(${titleY}px)`,
           }}
