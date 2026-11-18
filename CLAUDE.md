@@ -14,7 +14,7 @@ A ~60 s, 1920×1080, 30 fps explainer video. `SCRIPT.md` is the plan: what each 
 | `src/components/` | shared | Reusable pieces (e.g. `ScenePlaceholder`) |
 | `src/GroverExplainer.tsx`, `src/Root.tsx` | shared | Full video and Studio registrations |
 | `src/scene-timing.ts` | shared | Scene length = narration length + 0.5 s |
-| `tts.py` | shared | Kokoro TTS (voice `am_michael`) |
+| `tts.py` | shared | Kokoro TTS (voice `am_puck`, speed 1.1) |
 | `render.sh`, `VERSIONS.md`, `renders/` | shared | Versioned renders |
 
 ## Working in parallel
@@ -27,6 +27,17 @@ Two agents can work at the same time if each one owns different scenes:
 4. **Preview only your scene:** in `npx remotion studio`, open the `Part1` or `Part2` folder. Render it alone with `./render.sh Scene3-Superposition`.
 5. **Commit only your files** (`git add src/scenes/Scene3Superposition.tsx narration/scene3-superposition.txt public/narration/scene3-superposition.wav`), never `git add -A`. If git reports `index.lock`, wait a moment and retry: the other agent is committing.
 6. **Use the scene's length:** inside a scene, `useVideoConfig().durationInFrames` is that scene's own length. Time animations against it, so they still fit when the narration changes.
+
+### Shared drawing pieces
+- **`src/components/AmplitudeBars.tsx`**: the 8 amplitude bars (zero axis, ket labels, mean line, probability overlay). Use it for every bar scene so Part 1 and Part 2 look identical. It's a pure drawing component: animate by passing new `values` every frame. Exports `KET_LABELS`, `MARKED_INDEX` (5 = |101⟩) and `EQUAL_AMPLITUDE` (1/√8). Preview it in Studio under `Components/AmplitudeBars`.
+- To add a new reusable piece, put it in `src/components/part1/` or `src/components/part2/` (your part's folder only), so two agents never create the same file.
+
+### When several agents work at once
+- Don't run `./render.sh`, and don't render into `renders/`. The coordinator renders the full video. Check your work with stills written to your own temp folder: `npx remotion still Scene3-Superposition /tmp/<you>/s3.png --frame=120 --scale=0.5`.
+- `npx tsc` may show errors from another agent's half-finished scene. Only fix errors in your own files.
+- Commit your own files (see rule 5 above); don't push. The coordinator pushes, tags and releases.
+- Narration audio is final. Don't change narration text or run `tts.py` unless asked.
+- Timing to the voice: there are no word timestamps, so place each visual beat at roughly (word position ÷ total words) × scene duration, using the scene's `narration/*.txt`.
 
 ## Conventions
 

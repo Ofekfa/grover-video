@@ -1,4 +1,5 @@
 import { Composition, Folder } from "remotion";
+import { AmplitudeBarsPreview } from "./components/AmplitudeBarsPreview";
 import { GroverExplainer, calculateExplainerMetadata } from "./GroverExplainer";
 import { getSceneDurationInFrames } from "./scene-timing";
 import { SCENES } from "./scenes";
@@ -38,6 +39,18 @@ export const RemotionRoot: React.FC = () => {
           ))}
         </Folder>
       ))}
+
+      {/* Shared components on their own, for checking their look. */}
+      <Folder name="Components">
+        <Composition
+          id="AmplitudeBars"
+          component={AmplitudeBarsPreview}
+          durationInFrames={VIDEO.fps * 6}
+          fps={VIDEO.fps}
+          width={VIDEO.width}
+          height={VIDEO.height}
+        />
+      </Folder>
     </>
   );
 };
