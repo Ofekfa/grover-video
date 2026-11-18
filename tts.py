@@ -14,7 +14,7 @@ from kokoro_onnx import Kokoro
 ROOT = Path(__file__).resolve().parent
 MODEL = ROOT / "models" / "kokoro-v1.0.int8.onnx"
 VOICES = ROOT / "models" / "voices-v1.0.bin"
-OUT_WAV = ROOT / "narration.wav"
+OUT_WAV = ROOT / "public" / "narration.wav"
 OUT_JSON = ROOT / "src" / "narration.json"
 
 TEXT = (

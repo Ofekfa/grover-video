@@ -1,8 +1,10 @@
 import React from "react";
+import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
   Easing,
   interpolate,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -78,6 +80,7 @@ export const TestClip: React.FC = () => {
           "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif",
       }}
     >
+      <Audio src={staticFile("narration.wav")} />
       <div
         style={{
           display: "flex",

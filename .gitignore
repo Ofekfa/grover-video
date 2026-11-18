@@ -8,5 +8,4 @@ out
 .venv/
 models/
 *.mp4
-narration.wav
 __pycache__/
