@@ -3,10 +3,11 @@
 **Target length:** ~60 s · 1920×1080 · 30 fps
 **Voice:** Kokoro `am_michael` (calm male), `en-us`. Measured pace ≈ 2.5 words/s (17 words → 6.8 s), so ~155 words runs about 62 s before pauses. Trim a few words or set `SPEED` in `tts.py` to ~1.1 to fit 60 s.
 
-**Visual language (carried over from `TestClip`):**
+**Visual language (colors live in `src/theme.ts`):**
 - Light and bright: warm off-white background `#fbfaf6`, dark navy text `#1f2544`
 - Ordinary items: soft periwinkle bars `#b4bffb`; marked item: bright orange `#ff7a1a` (bar #6, index 5)
 - Bar **height = amplitude**. A horizontal zero axis appears from Scene 3 on, so bars can go negative (point down).
+- **Illustrations are drawn in code** (React, SVG, CSS) as Remotion components. Real screenshots are fine when useful (e.g. a paper's abstract or a real circuit tool). **No images made by generative models.**
 
 ---
 

@@ -30,6 +30,7 @@ Two agents can work at the same time if each one owns different scenes:
 
 ## Conventions
 
+- **Illustrations are drawn in code** (React components, SVG, CSS) — diagrams, circuits, axes, icons. Screenshots are welcome when useful (save them in `public/screenshots/` with a note of the source). **Never use images made by generative models.**
 - Bar height = amplitude. Ordinary bars use `COLORS.bar`; the marked item is bar #6 (index 5) in `COLORS.marked`. Use the values in the `SCRIPT.md` math table.
 - Python runs from the venv: `.venv/bin/python` (system `python3` doesn't have kokoro-onnx).
 - Check before committing: `npx tsc && npx eslint src`.
